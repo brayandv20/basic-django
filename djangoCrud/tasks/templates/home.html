@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <main class="container py-5">
+        <section class="card card-body">
+            <h1 class="display-1 text-center">Home Django App</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex,</p>
+
+            <div class="text-center">
+                <a class="btn btn-primary" href="{% url 'inscribirse' %}">Registrarse</a>
+                <a class="btn btn-dark" href="{% url 'iniciarSesion' %}">Iniciar Sesion</a>
+            </div>
+            <!--button class="btn btn-primary">Registrarse</button>
+            <button class="btn btn-primary">Iniciar Sesion</button-->
+        </section>
+
+    </main>
+
+
+{% endblock %}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Djando crud aplication</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                      </li>
+                      {% if user.is_authenticated %}
+                      <li class="nav-item">
+                        <a class="nav-link" href="/tarea/crear/">Crear Tarea</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'tareas' %}">Tareas pendientes</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'tarea_completadas' %}">Tareas Completadas</a>
+                      </li>                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cerraSesion' %}">Cerrar sesion</a>
+                      </li>
+                      {% else %}                     
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'inscribirse' %}">Inscribirse</a>
+                      </li>                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'iniciarSesion' %}">Iniciar Sesion</a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+                <a href="/tarea/crear/">Crear Tarea</a>
+            </li>
+            <li>
+                <a href="{% url 'tareas' %}">Tareas pendientes</a>
+            </li>
+            <li>
+                <a href="{% url 'tarea_completadas' %}">Tareas completadas</a>
+            </li>
+            <li>
+                <a href="/cerrarSesion">Cerrar sesion</a>
+            </li>
+
+            {% else %}
+            <li>
+                <a href="/inscribirse">Inscribirse</a>
+            </li>
+            <li>
+                <a href="/iniciarSesion">IniciarSesion</a>
+            </li>
+            {% endif %}
+
+            <li>
+                <a href="/">pagina sin url</a>
+            </li>
+
+        </ul-->
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1>Tareas pendientes</h1>
+            <ul class="list-group">
+                {% for x in Tarea %}
+                    <a class="list-group-item " href="{% url 'tareas' x.id %}">
+                        <header class="d-flex">
+                            {% if x.importante %}
+                                <h1 style="color: crimson;">{{x.titulo}}</h1>
+                            {% else %}
+                                <h1>{{x.titulo}}</h1>
+                            {% endif %}
+                                <p>descripcion : {{x.descripcion}}</p>
+                                <p>Autor : {{x.usuario.username}}</p>
+                                <p>{{x.diaCompletado|date:'M j Y:i'}}</p>
+                        </header>
+
+                    </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+
+
+{% endblock%}
